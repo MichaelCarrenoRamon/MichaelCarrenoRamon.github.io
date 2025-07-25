@@ -1,0 +1,191 @@
+/* --- HERO Mejorado con animación y fondo traslúcido --- */
+.hero {
+    background: url('assets/background.jpg') no-repeat center center/cover;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    animation: heroFadeIn 1.5s ease;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: inherit;
+    filter: blur(6px) brightness(0.7) saturate(1.2);
+    z-index: 1;
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px) saturate(1.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: overlaySlideDown 1.2s cubic-bezier(.77,0,.18,1);
+  }
+  
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: scale(1.05); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes overlaySlideDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 24px #00ffe0, 0 1px 2px #000;
+    animation: fadeInUp 1.2s 0.2s both;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #e0f7fa;
+    animation: fadeInUp 1.2s 0.4s both;
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  nav a {
+    color: #00ffe0;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.2s;
+  }
+  nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, #00ffe0, #00c8ff);
+    transition: width 0.3s;
+    position: absolute;
+    left: 0; bottom: -3px;
+  }
+  nav a:hover {
+    color: #fff;
+  }
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Arial', Helvetica, sans-serif;
+    background: radial-gradient(circle at 20% 30%, #0a2540 0%, #000 80%), #000;
+    color: #eaf6ff;
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  /* --- Cards estilo glassmorphism --- */
+  .certificaciones ul, .certificaciones-profesionales ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+    padding: 0;
+    margin-top: 18px;
+  }
+  .certificaciones ul li, .certificaciones-profesionales ul li {
+    background: rgba(20, 40, 80, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(0, 200, 255, 0.18), 0 1.5px 4px rgba(0,0,0,0.18);
+    padding: 22px 18px;
+    margin: 0;
+    list-style: none;
+    border: 2.5px solid;
+    border-image: linear-gradient(120deg, #00c8ff 10%, #0a2540 90%) 1;
+    backdrop-filter: blur(8px) saturate(1.3);
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    animation: fadeInUp 1.1s both;
+  }
+  .certificaciones ul li:hover, .certificaciones-profesionales ul li:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 12px 48px 0 rgba(0, 200, 255, 0.28), 0 2px 8px rgba(0,0,0,0.18);
+    border-image: linear-gradient(120deg, #00ffe0 10%, #015b8f 90%) 1;
+  }
+  
+  /* Ajuste de color para los títulos de sección */
+  h2 {
+    color: #00c8ff;
+    border-bottom: 2px solid #00c8ff;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    background: none;
+  }
+  
+  /* Ajuste para el overlay del hero para que combine con el fondo */
+  .overlay {
+    background: rgba(10, 37, 64, 0.55);
+    backdrop-filter: blur(4px) saturate(1.2);
+  }
+  
+  /* --- Animación de entrada para secciones --- */
+  section {
+    animation: fadeInUp 1.2s both;
+  }
+  
+  /* --- Mejoras visuales para skills --- */
+  .skills .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+  }
+  
+  .skills span {
+    background: linear-gradient(90deg, rgba(0,200,255,0.25) 60%, rgba(0,255,224,0.18) 100%);
+    color: #eaf6ff;
+    border: 1.5px solid rgba(0,200,255,0.25);
+    box-shadow: 0 3px 12px rgba(0, 200, 255, 0.10);
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.08rem;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  
+  .skills span:hover {
+    border-color: #00ffe0;
+  }
+  
+  /* --- Footer animado --- */
+  footer {
+    background: linear-gradient(90deg, #015b8f 60%, #00c8ff 100%);
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+    animation: fadeInUp 1.2s 0.5s both;
+  }
+  
+  /* --- Responsive mejoras --- */
+  @media (max-width: 600px) {
+    .hero { height: 200px; }
+    header h1 { font-size: 1.5rem; }
+    main { padding: 10px; }
+    .certificaciones ul, .certificaciones-profesionales ul { grid-template-columns: 1fr; }
+  }
