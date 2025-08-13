@@ -335,8 +335,8 @@ h1 {
 }
 
 .skill-icon {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     color: #00c8ff;
     transition: color 0.2s, transform 0.2s;
 }
